@@ -6,11 +6,10 @@ const PORT = 3002;
 const HOST = '0.0.0.0';
 
 const app = express();
+app.use(express.json());
 
-mongoose.connect('mongodb://192.168.0.105:27017/nodeapi', {useNewUrlParser: true});
+mongoose.connect('mongodb://192.168.0.105:27017/client', {useNewUrlParser: true});
 requireDir('./src/models/');
 
-//const Client = mongoose.model('Client');
 app.use('/service/', require('./src/routes'));
-
 app.listen(PORT, HOST);
