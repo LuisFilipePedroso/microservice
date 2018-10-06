@@ -8,18 +8,9 @@ const HOST = '0.0.0.0';
 const app = express();
 
 mongoose.connect('mongodb://192.168.0.105:27017/nodeapi', {useNewUrlParser: true});
-requireDir('./public/models/');
+requireDir('./src/models/');
 
-const Client = mongoose.model('Client');
-
-app.get('/', (req,res) => {
-    Client.create({
-        name: "Juca",
-        address: "Rua Leopoldo da Cunha",
-        birth: '1997-09-02',
-
-    });
-    return res.send("I'm client!!");
-});
+//const Client = mongoose.model('Client');
+app.use('/service/', require('./src/routes'));
 
 app.listen(PORT, HOST);
