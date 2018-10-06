@@ -8,7 +8,7 @@ const HOST = '0.0.0.0';
 const app = express();
 
 mongoose.connect('mongodb://192.168.0.105:27017/nodeapi', {useNewUrlParser: true});
-requireDir('./src/models/');
+requireDir('./public/models/');
 
 const Client = mongoose.model('Client');
 
